@@ -58,3 +58,17 @@ if (binding.hasVariable("fileUpload")) {
 
 execution.setVariable("newIssueUuid", newIssueUuid)
 
+
+//*********Alternative code without binding
+
+// if (fileUpload != null) {
+//     def inputFileName = fileApi.getFileInfo(string2Uuid(fileUpload)).getName()
+
+//     attachmentApi.addAttachment(AddAttachmentRequest.builder()
+//             .baseResourceId(newIssueUuid)
+//             .baseResourceType(ResourceType.valueOf("Asset"))
+//             .fileName(inputFileName)
+//             .fileStream(fileApi.getFileAsStream(string2Uuid(fileUpload)))
+//             .build()
+//     )
+// }
