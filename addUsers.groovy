@@ -20,7 +20,7 @@ while (rowIter.hasNext()) {
     def firstName = row.getCell(0)?.getStringCellValue()?.trim()
     def lastName = row.getCell(1)?.getStringCellValue()?.trim()
     def email = row.getCell(3)?.getStringCellValue()?.trim()
-    def userName = "${firstName}${lastName}"
+    def userName = "${firstName} ${lastName}"
 
     addUserRequests.add(AddUserRequest.builder()
         .userName(userName)
@@ -43,7 +43,7 @@ fileStream.close()
 } else {
 def firstName = execution.getVariable("firstName")
 def lastName = execution.getVariable("lastName")
-def userName = "${firstName}${lastName}"
+def userName = "${firstName} ${lastName}"
 def email = execution.getVariable("email")
 
 loggerApi.info("userName: ${userName}, firstName: ${firstName}, lastName: ${lastName}, emailAddress: ${email}, dataAcademyId: ${dataAcademyId}")
