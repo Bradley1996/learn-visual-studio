@@ -10,19 +10,21 @@ import java.util.TimeZone
 def startDateObj = new Date(startDate)
 def endDateObj = new Date(endDate)
 
-def dateFormat = new SimpleDateFormat("dd-MM-yyyy")
-
-dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"))
-
-def formattedStartDate = dateFormat.format(startDateObj)
-def formattedEndDate = dateFormat.format(endDateObj)
-
 loggerApi.info("Start Date (as Date): ${startDateObj}")
 loggerApi.info("End Date (as Date): ${endDateObj}")
 
+//reformat date 
+def dateFormat = new SimpleDateFormat("dd-MM-yyyy")
+
+// create function for setting timezone 
+dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"))
+
+// apply set timezone function 
+def formattedStartDate = dateFormat.format(startDateObj)
+def formattedEndDate = dateFormat.format(endDateObj)
+
 loggerApi.info("Formatted Start Date: ${formattedStartDate}")
 loggerApi.info("Formatted End Date: ${formattedEndDate}")
-
 
 execution.setVariable("formattedStartDate", formattedStartDate)
 execution.setVariable("formattedEndDate", formattedEndDate)
